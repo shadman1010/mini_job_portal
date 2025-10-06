@@ -1,0 +1,8 @@
+- [x] Clarify Project Requirements – Flutter mini job portal with local auth, jobs from dummyjson, saved jobs via Hive.
+- [x] Scaffold the Project – Basic structure & files created.
+- [x] Customize the Project – Implemented core features per spec.
+- [x] Install Required Extensions – None required beyond Flutter basics.
+- [ ] Compile the Project – Pending user to run `flutter pub get` and build (SDK not executed here).
+- [ ] Create and Run Task – Not configured.
+- [ ] Launch the Project – After dependency get.
+- [x] Ensure Documentation is Complete – README added.
