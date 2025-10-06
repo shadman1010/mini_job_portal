@@ -16,7 +16,7 @@ class ProfileTab extends StatelessWidget {
         children: [
           const CircleAvatar(radius: 40, child: Icon(Icons.person, size: 40)),
           const SizedBox(height: 12),
-          Text('Name: Demo User'),
+          const Text('Name: Demo User'),
           Text('Email: $email'),
           Text('Saved Jobs: $count'),
         ],

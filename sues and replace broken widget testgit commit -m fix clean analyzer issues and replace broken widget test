@@ -1,0 +1,34 @@
+[1mdiff --git a/lib/models/job.dart b/lib/models/job.dart[m
+[1mindex 26d4298..e72384a 100644[m
+[1m--- a/lib/models/job.dart[m
+[1m+++ b/lib/models/job.dart[m
+[36m@@ -35,7 +35,7 @@[m [mclass Job {[m
+     return Job([m
+       id: id,[m
+       role: role,[m
+[31m-      company: baseCompany + ' Ltd',[m
+[32m+[m[32m  company: "$baseCompany Ltd",[m
+       location: _locations[id % _locations.length],[m
+       salary: (json['price'] is num) ? (json['price'] as num).toDouble() * 1000 : 0.0,[m
+       summary: rawDesc,[m
+[1mdiff --git a/lib/screens/home/home_shell.dart b/lib/screens/home/home_shell.dart[m
+[1mindex 0854ff6..5fdadb8 100644[m
+[1m--- a/lib/screens/home/home_shell.dart[m
+[1m+++ b/lib/screens/home/home_shell.dart[m
+[36m@@ -2,7 +2,6 @@[m [mimport 'package:flutter/material.dart';[m
+ import 'package:provider/provider.dart';[m
+ import '../../providers/auth_provider.dart';[m
+ import '../../providers/saved_jobs_provider.dart';[m
+[31m-import '../../providers/job_list_provider.dart';[m
+ import 'job_list_tab.dart';[m
+ import 'saved_jobs_tab.dart';[m
+ import 'profile_tab.dart';[m
+[36m@@ -19,7 +18,7 @@[m [mclass _HomeShellState extends State<HomeShell> {[m
+ [m
+   @override[m
+   Widget build(BuildContext context) {[m
+[31m-    final tabs = const [JobListTab(), SavedJobsTab(), ProfileTab()];[m
+[32m+[m[32m  const tabs = [JobListTab(), SavedJobsTab(), ProfileTab()];[m
+     return Scaffold([m
+       appBar: AppBar([m
+         title: const Text('Job Portal'),[m

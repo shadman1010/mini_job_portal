@@ -35,7 +35,7 @@ class Job {
     return Job(
       id: id,
       role: role,
-      company: baseCompany + ' Ltd',
+  company: "$baseCompany Ltd",
       location: _locations[id % _locations.length],
       salary: (json['price'] is num) ? (json['price'] as num).toDouble() * 1000 : 0.0,
       summary: rawDesc,

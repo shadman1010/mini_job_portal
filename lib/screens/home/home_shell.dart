@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/saved_jobs_provider.dart';
-import '../../providers/job_list_provider.dart';
 import 'job_list_tab.dart';
 import 'saved_jobs_tab.dart';
 import 'profile_tab.dart';
@@ -19,7 +18,7 @@ class _HomeShellState extends State<HomeShell> {
 
   @override
   Widget build(BuildContext context) {
-    final tabs = const [JobListTab(), SavedJobsTab(), ProfileTab()];
+  const tabs = [JobListTab(), SavedJobsTab(), ProfileTab()];
     return Scaffold(
       appBar: AppBar(
         title: const Text('Job Portal'),
