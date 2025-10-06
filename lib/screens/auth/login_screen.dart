@@ -50,10 +50,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           _loading = true;
                           _error = null;
                         });
+                        final navigator = Navigator.of(context);
                         final auth = context.read<AuthProvider>();
-                        final ok = await auth.login(_emailController.text.trim(), _passwordController.text);
-                        if (ok && mounted) {
-                          Navigator.of(context).pushReplacement(
+                        final email = _emailController.text.trim();
+                        final password = _passwordController.text;
+                        final ok = await auth.login(email, password);
+                        if (!mounted) return; // stop if widget disposed during await
+                        if (ok) {
+                          navigator.pushReplacement(
                             MaterialPageRoute(builder: (_) => const HomeShell()),
                           );
                         } else {

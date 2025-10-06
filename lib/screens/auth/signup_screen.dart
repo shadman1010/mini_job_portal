@@ -49,10 +49,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           _loading = true;
                           _error = null;
                         });
+                        final navigator = Navigator.of(context);
                         final auth = context.read<AuthProvider>();
-                        final ok = await auth.signUp(_emailController.text.trim(), _passwordController.text);
-                        if (ok && mounted) {
-                          Navigator.of(context).pushReplacement(
+                        final email = _emailController.text.trim();
+                        final password = _passwordController.text;
+                        final ok = await auth.signUp(email, password);
+                        if (!mounted) return; // disposed mid-await
+                        if (ok) {
+                          navigator.pushReplacement(
                             MaterialPageRoute(builder: (_) => const HomeShell()),
                           );
                         } else {
