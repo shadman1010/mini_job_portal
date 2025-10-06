@@ -8,6 +8,7 @@ import 'package:job_portal/providers/saved_jobs_provider.dart';
 import 'package:job_portal/screens/auth/login_screen.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
   testWidgets('App starts on Login screen', (tester) async {
     // Initialize Hive in memory for tests
     await Hive.initFlutter();
@@ -24,7 +25,9 @@ void main() {
       ),
     );
 
-    await tester.pump();
+  // First pump builds widgets; second pump lets post-frame callbacks run
+  await tester.pump();
+  await tester.pump();
 
     expect(find.text('Login'), findsOneWidget);
     expect(find.text('Create account'), findsOneWidget);
